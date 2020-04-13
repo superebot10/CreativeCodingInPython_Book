@@ -4,3 +4,4 @@
 .pki
 .vscode
 .viminfo
+.pylint.d
