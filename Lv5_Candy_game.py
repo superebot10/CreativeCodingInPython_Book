@@ -55,6 +55,11 @@ def make_candy():
 def move_candy():
     # loop through list of candy and change y position
     for candy in candy_list:
-        canvas
-
+        canvas.move(candy, 0, candy_speed)
+        # check if end of screen - restart at random position
+        if canvas.coords(candy)[1] > 400:
+            xposition = random.randint(1,400)
+            canvas.coords(candy, xposition, 0, xposition+30,30)
+    # schedule this function to move candy again
+    window.after(50, move_candy)
 window.mainloop()
