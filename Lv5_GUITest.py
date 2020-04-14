@@ -16,5 +16,3 @@ display_area = Label(window, text ="")
 display_area.pack()
 
 window.mainloop()
-
-#Top Secret Code: 123ABC
