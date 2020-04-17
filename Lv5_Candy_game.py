@@ -62,4 +62,29 @@ def move_candy():
             canvas.coords(candy, xposition, 0, xposition+30,30)
     # schedule this function to move candy again
     window.after(50, move_candy)
+
+#function updates score, level and candy_speed
+def update_sore_level():
+    #use of global since variables are changes
+    global score, level, candy_speed
+    score = score + 1
+    score_display.config(text="Score :" + str(score))
+    #determine if level needs to change
+    #update level and candy speed
+    if score > 5 and score <= 10:
+        candy_speed = candy_speed +1
+        level = 2
+        level_display.config(text="Level : " + str(level))
+    elif score > 10:
+        candy_speed = candy_speed + 1
+        level = 3
+        level_display.config(text="Level :" + str(level))
+
+def end_game_over():
+    window.destroy()
+
+#this destroyes the instructions on the screen
+def end_title():
+    canvas.delete(title)       #remove title
+    canvas.delete(directions)  #remove directions
 window.mainloop()
